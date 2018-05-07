@@ -2,12 +2,14 @@
 'use strict';
 
 const Hapi=require('hapi');
-
+const vision = require('vision');
 // Create a server with a host and port
 const server=Hapi.server({
     host:'localhost',
     port: 8000
 });
+
+const url = "http://mal-api.comanimelist/kittymask?format=json";
 
 // Add the index.html route
 server.route({
@@ -31,7 +33,13 @@ server.route({
 
 // Start the server
 async function start() {
-    
+    server.views({
+        engines: {
+            html: require('handlebars')
+        },
+        relativeTo: __dirname
+    });
+    await server.register(vision);
     try {
         await server.start();
     }
