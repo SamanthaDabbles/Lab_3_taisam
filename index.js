@@ -12,17 +12,12 @@ const server=Hapi.server({
 // Public Key
 // 14f3c3b10c16b2989229ccb944a33b32 
 
-
-// Private Key
-// e6c215503ed4418bf77ef42c06a478b6b76ece8c
-
-
 const url = "";
 var marvelAPI="https://gateway.marvel.com/v1/public/comics";
 function getMarvelsAttention() {
     var time = new Date().getTime();
     var PUBLIC = '14f3c3b10c16b2989229ccb944a33b32';
-    var PRIVATE = 'e6c215503ed4418bf77ef42c06a478b6b76ece8c';
+    var PRIVATE = '';
     var keys = CryptoJS.MD5(time + PRIVATE + PUBLIC ).toString();
 
 }
