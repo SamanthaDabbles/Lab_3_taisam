@@ -1,7 +1,7 @@
 
 'use strict';
 
-const Hapi=require('hapi');
+const Hapi = require('hapi');
 const vision = require('vision');
 // Create a server with a host and port
 const server=Hapi.server({
@@ -9,9 +9,28 @@ const server=Hapi.server({
     port: 8000
 });
 
-const url = "http://mal-api.comanimelist/kittymask?format=json";
+// Public Key
+// 14f3c3b10c16b2989229ccb944a33b32 
 
-// Add the index.html route
+
+// Private Key
+// e6c215503ed4418bf77ef42c06a478b6b76ece8c
+
+
+const url = "";
+var marvelAPI="https://gateway.marvel.com/v1/public/comics";
+function getMarvelsAttention() {
+    var time = new Date().getTime();
+    var PUBLIC = '14f3c3b10c16b2989229ccb944a33b32';
+    var PRIVATE = 'e6c215503ed4418bf77ef42c06a478b6b76ece8c';
+    var keys = CryptoJS.MD5(time + PRIVATE + PUBLIC ).toString();
+
+}
+function loadHeroes() {
+
+}
+
+// Add the index.html routes
 server.route({
     method:'GET',
     path:'/',
